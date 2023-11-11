@@ -13,10 +13,10 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public static final int rightMasterCANID = 6;
-    public static final int rightFollowerCANID = 5;
-    public static final int leftMasterCANID = 7;
-    public static final int leftFollowerCANID = 8;
+    public static final int rightMasterCANID = 7;
+    public static final int rightFollowerCANID = 8;
+    public static final int leftMasterCANID = 6;
+    public static final int leftFollowerCANID = 5;
     public static final int XboxControllerPort = 0;
 
     public static final double maxMotorOutput = 0.55;

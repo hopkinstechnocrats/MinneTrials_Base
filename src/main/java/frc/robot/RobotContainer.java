@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.DriveSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.commands.DriveToWall;
+import frc.robot.commands.DriveTime;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -34,7 +34,8 @@ public class RobotContainer {
     driveSubsystem.setDefaultCommand(
             new RunCommand(
                     () -> {
-                      driveSubsystem.drive(-Constants.maxMotorOutput*driveController.getLeftY(), -0.55*driveController.getRightY());
+                      driveSubsystem.drive(Constants.maxMotorOutput*driveController.getLeftY(), 
+                      Constants.maxMotorOutput*driveController.getRightY());
                     }
             , driveSubsystem)
     );
