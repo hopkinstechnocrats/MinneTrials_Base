@@ -27,7 +27,7 @@ public class RobotContainer {
   
   private final XboxController operatorController = new XboxController(1);
 
-  private final DriveTime m_driveTime = new DriveTime(driveSubsystem, 0.55, 3);
+  private final DriveTime m_driveTime = new DriveTime(driveSubsystem, -0.55, 3);
 
   
 
@@ -38,8 +38,9 @@ public class RobotContainer {
     driveSubsystem.setDefaultCommand(
             new RunCommand(
                     () -> {
-                      driveSubsystem.drive(Constants.maxMotorOutput*driveController.getLeftY(), 
-                      Constants.maxMotorOutput*driveController.getRightY());
+                      //controllers give negative output for forwards
+                      driveSubsystem.drive(-Constants.maxMotorOutput*driveController.getLeftY(), 
+                      -Constants.maxMotorOutput*driveController.getRightY());
                     }
             , driveSubsystem)
     );
