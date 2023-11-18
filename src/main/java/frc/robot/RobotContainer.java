@@ -30,9 +30,13 @@ public class RobotContainer {
   
   private final XboxController operatorController = new XboxController(1);
 
-  private final DriveTime m_driveTime = new DriveTime(driveSubsystem, -0.55, -0.55, 3);
-  private final DriveTime m_spinTime = new DriveTime(driveSubsystem, -0.55, 0.55, 3);
-  
+  private final DriveTime m_driveTime1 = new DriveTime(driveSubsystem, -0.55, -0.55, 0.5);
+  private final DriveTime m_spinTime1 = new DriveTime(driveSubsystem, 0.55, -0.55, 0.5);
+  private final DriveTime m_driveTime2 = new DriveTime(driveSubsystem, -0.55, -0.55, 1);
+  private final DriveTime m_spinTime2 = new DriveTime(driveSubsystem, -0.55, 0.55, 0.5);
+  private final DriveTime m_driveTime3 = new DriveTime(driveSubsystem, -0.55, -0.55, 0.5);
+  private final DriveTime m_spinTime3 = new DriveTime(driveSubsystem, 0.55, -0.55, 0.5);
+  private final DriveTime m_driveTime4 = new DriveTime(driveSubsystem, 0.55, 0.55, 0.5);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -82,7 +86,7 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     return new SequentialCommandGroup(
-      m_driveTime, m_spinTime, m_driveTime
+      m_driveTime1, m_spinTime1, m_driveTime2, m_driveTime3, m_spinTime2, m_spinTime3, m_driveTime4
     );
   }
 }
