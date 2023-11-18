@@ -57,12 +57,13 @@ public class RobotContainer {
   private void configureButtonBindings() {
     JoystickButton aButton = new JoystickButton(operatorController, 1);
     JoystickButton bButton = new JoystickButton(operatorController, 2);
+    JoystickButton xButton = new JoystickButton(operatorController, 3);
     JoystickButton aDriverButton = new JoystickButton(driveController, 1);
     JoystickButton bDriverButton = new JoystickButton(driveController, 2);
 
     aButton.whileTrue(new RunCommand(() -> conveyorSubsystem.ConveyorWheels()));
-    bButton.whileTrue(new RunCommand(() -> intakeSubsystem.SpinIntake()));
-
+    bButton.whileTrue(new RunCommand(() -> intakeSubsystem.SpinIntake(true)));
+    xButton.whileTrue(new RunCommand(() -> intakeSubsystem.SpinIntake(false)));
   }
    
   
