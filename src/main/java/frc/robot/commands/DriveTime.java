@@ -13,16 +13,18 @@ public class DriveTime extends CommandBase {
   private DriveSubsystem subsystem;
 
   private final double m_duration;
-  private final double m_speed;
+  private final double m_speedL;
+  private final double m_speedR;
   private long m_startTime;
 
 /** Creates a new DriveToWall. */
-  public DriveTime(DriveSubsystem subsystem, double speed, double duration) {
+  public DriveTime(DriveSubsystem subsystem, double speedL, double speedR, double duration) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
     this.subsystem = subsystem;
     m_duration = duration * 1000;
-    m_speed = speed;
+    m_speedL = speedL;
+    m_speedR = speedR;
   }
 
   // Called when the command is initially scheduled.
@@ -36,7 +38,7 @@ public class DriveTime extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    subsystem.drive(m_speed, m_speed);
+    subsystem.drive(m_speedL, m_speedR);
   }
 
   // Called once the command ends or is interrupted.

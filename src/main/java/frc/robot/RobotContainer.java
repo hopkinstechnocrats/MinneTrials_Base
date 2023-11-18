@@ -27,8 +27,8 @@ public class RobotContainer {
   
   private final XboxController operatorController = new XboxController(1);
 
-  private final DriveTime m_driveTime = new DriveTime(driveSubsystem, -0.55, 3);
-
+  private final DriveTime m_driveTime = new DriveTime(driveSubsystem, -0.55, -0.55, 3);
+  private final DriveTime m_spinTime = new DriveTime(driveSubsystem, -0.55, 0.55, 3);
   
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -75,7 +75,7 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     return new SequentialCommandGroup(
-      m_driveTime
+      m_driveTime, m_spinTime, m_driveTime
     );
   }
 }
