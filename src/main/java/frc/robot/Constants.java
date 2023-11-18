@@ -17,7 +17,12 @@ public final class Constants {
     public static final int rightFollowerCANID = 8;
     public static final int leftMasterCANID = 6;
     public static final int leftFollowerCANID = 5;
+    //TODO find CANID of conveyer motor
+    public static final int conveyerMotorID = 10;
     public static final int XboxControllerPort = 0;
 
     public static final double maxMotorOutput = -0.55;
+    public static final double conveyorSpeed = 0.1;
+
+
 }
