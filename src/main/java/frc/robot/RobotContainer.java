@@ -9,7 +9,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.subsystems.ConveyorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.commands.DriveTime;
 
@@ -22,6 +24,10 @@ import frc.robot.commands.DriveTime;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem driveSubsystem = new DriveSubsystem();
+
+  private final ConveyorSubsystem conveyorSubsystem = new ConveyorSubsystem();
+
+  private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
 
   private final XboxController driveController = new XboxController(Constants.XboxControllerPort);
   
@@ -54,6 +60,8 @@ public class RobotContainer {
     JoystickButton aDriverButton = new JoystickButton(driveController, 1);
     JoystickButton bDriverButton = new JoystickButton(driveController, 2);
 
+    aButton.whileTrue(new RunCommand(() -> conveyorSubsystem.ConveyorWheels()));
+    bButton.whileTrue(new RunCommand(() -> intakeSubsystem.SpinIntake()));
 
   }
    
