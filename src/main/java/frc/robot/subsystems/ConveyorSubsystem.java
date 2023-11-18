@@ -19,6 +19,9 @@ public class ConveyorSubsystem extends SubsystemBase {
   public ConveyorSubsystem() {
     //initialize variables
     conveyorMotor = new WPI_TalonFX(Constants.conveyerMotorID);
+    conveyorMotor.configFactoryDefault();
+    conveyorMotor.setNeutralMode(NeutralMode.Brake);
+
 
     
   }
