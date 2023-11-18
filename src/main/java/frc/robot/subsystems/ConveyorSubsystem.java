@@ -23,12 +23,18 @@ public class ConveyorSubsystem extends SubsystemBase {
     conveyorLeader.configFactoryDefault();
     conveyorFollower.configFactoryDefault();
 
+    conveyorLeader.setNeutralMode(NeutralMode.Brake);
+    conveyorFollower.setNeutralMode(NeutralMode.Brake);
+
     conveyorFollower.follow(conveyorLeader);
     conveyorFollower.setInverted(true);
-
-
   }
 
+  public void ConveyorWheels(){
+    conveyorLeader.set(Constants.conveyorSpeed);
+
+    }
+  
 
   @Override
   public void periodic() {

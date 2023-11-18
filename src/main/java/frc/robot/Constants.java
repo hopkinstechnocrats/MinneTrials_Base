@@ -20,9 +20,9 @@ public final class Constants {
     public static final int XboxControllerPort = 0;
    // TODO find conveyor CANIDs
     public static final int conveyorLeaderCANID = 10; 
-    public static final int conveyorFollowerCANID = 11; 
+    public static final int conveyorFollowerCANID = 11;
+    
+    public static final double conveyorSpeed = 0.1;
 
-    public static final double maxMotorPower = 0.55;
-
-
+    public static final double maxMotorPower = -0.55;
 }
