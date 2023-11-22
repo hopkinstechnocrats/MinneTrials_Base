@@ -14,15 +14,20 @@ import frc.robot.Constants;
 public class IntakeSubsystem extends SubsystemBase {
  
     WPI_TalonFX intakeLeader;
+    WPI_TalonFX intakeFollower;
 
-  public IntakeSubsystem() {
+      public IntakeSubsystem() {
     intakeLeader = new WPI_TalonFX(Constants.intakeLeaderCANID);
 
     intakeLeader.configFactoryDefault();
+    intakeFollower.configFactoryDefault();
 
     intakeLeader.setNeutralMode(NeutralMode.Brake);
+    intakeFollower.setNeutralMode(NeutralMode.Brake);
+
     //TODO invert? 
     intakeLeader.setInverted(false);
+    intakeFollower.setInverted(false);
   }
 
   public void SpinIntake(boolean direction){

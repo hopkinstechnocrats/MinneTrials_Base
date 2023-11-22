@@ -25,6 +25,7 @@ public final class Constants {
     public static final double conveyorSpeed = 0.1;
     //TODO find intake CANID
     public static final int intakeLeaderCANID = 12;
+    public static final int intakeFollowerCANID = 13;
 
     public static final double intakeSpeed = 0.1;
 
