@@ -22,6 +22,7 @@ public class DriveTime extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
     this.subsystem = subsystem;
+    //multiplying duration by 1000 to change input seconds into output of milliseconds
     m_duration = duration * 1000;
     m_speedL = speedL;
     m_speedR = speedR;
@@ -48,6 +49,7 @@ public class DriveTime extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
+    // stops driving forwards when the code has been running for longer than duration inputed
     return (System.currentTimeMillis() - m_startTime) >= m_duration;
   }
 }

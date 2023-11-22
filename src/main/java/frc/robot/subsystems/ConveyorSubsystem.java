@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class ConveyorSubsystem extends SubsystemBase {
-  //intantiate variables
+  //instantiate variables
   WPI_TalonFX conveyorMotor;
 
   public ConveyorSubsystem() {
@@ -28,11 +28,11 @@ public class ConveyorSubsystem extends SubsystemBase {
   
   
   public void Spin(Boolean direction){
-    //if true spin conveyor forwards
+    //if true spin conveyer forwards
     if(direction){
       conveyorMotor.set(Constants.conveyorSpeed);
     }
-    //if false spin conveyors backwards
+    //if false spin conveyer backwards
     else{
       conveyorMotor.set(-Constants.conveyorSpeed);
     }
