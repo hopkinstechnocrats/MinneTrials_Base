@@ -18,6 +18,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
       public IntakeSubsystem() {
     intakeLeader = new WPI_TalonFX(Constants.intakeLeaderCANID);
+    intakeFollower = new WPI_TalonFX(Constants.intakeLeaderCANID);
 
     intakeLeader.configFactoryDefault();
     intakeFollower.configFactoryDefault();
@@ -27,7 +28,8 @@ public class IntakeSubsystem extends SubsystemBase {
 
     //TODO invert? 
     intakeLeader.setInverted(false);
-    intakeFollower.setInverted(false);
+    intakeFollower.setInverted(true);
+    intakeFollower.follow(intakeLeader);
   }
 
   public void SpinIntake(boolean direction){
