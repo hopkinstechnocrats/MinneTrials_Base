@@ -13,7 +13,7 @@ public class DriveTime extends CommandBase {
   private final double m_speed;
   private long m_startTime;
 
-/** Creates a new DriveToWall. */
+/** Creates a new DriveTime. */
   public DriveTime(DriveSubsystem subsystem, double speed, double duration) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
