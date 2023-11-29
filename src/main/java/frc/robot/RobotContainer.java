@@ -40,7 +40,7 @@ public class RobotContainer {
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
-    m_autoChooser.setDefaultOption("Drive1 Auto", m_autoRoutines.DriveCommand1());
+    m_autoChooser.setDefaultOption("Drive And Dump Auto", m_autoRoutines.DriveAndDump());
     configureButtonBindings();
     driveSubsystem.setDefaultCommand(
             new RunCommand(
