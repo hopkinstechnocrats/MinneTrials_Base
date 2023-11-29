@@ -41,7 +41,7 @@ public class RobotContainer {
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    m_autoChooser.setDefaultOption("DriveForwards Auto", m_autoRoutines.DriveForwards());
+    m_autoChooser.setDefaultOption("DriveAutoSimple Auto", m_autoRoutines.DriveAutoSimple());
     // Configure the button bindings
     configureButtonBindings();
     driveSubsystem.setDefaultCommand(
