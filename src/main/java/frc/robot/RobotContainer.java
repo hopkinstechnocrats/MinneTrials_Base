@@ -6,6 +6,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -13,6 +14,7 @@ import frc.robot.subsystems.ConveyorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Auto.AutoRoutines;
 import frc.robot.commands.DriveTime;
 
 /**
@@ -29,12 +31,17 @@ public class RobotContainer {
 
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
 
+  private final AutoRoutines m_autoRoutines = new AutoRoutines(driveSubsystem);
+
+  private SendableChooser<Command> m_autoChooser = new SendableChooser<>();
+
   private final XboxController driveController = new XboxController(Constants.XboxControllerPort);
   
   private final XboxController operatorController = new XboxController(1);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
+    m_autoChooser.setDefaultOption("DriveForwards Auto", m_autoRoutines.DriveForwards());
     // Configure the button bindings
     configureButtonBindings();
     driveSubsystem.setDefaultCommand(
@@ -79,8 +86,7 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    return new SequentialCommandGroup(
-    );
+    
+      return m_autoChooser.getSelected();
   }
 }
