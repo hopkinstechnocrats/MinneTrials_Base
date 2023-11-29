@@ -6,12 +6,14 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.subsystems.ConveyorSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Auto.AutoRoutines;
 import frc.robot.commands.DriveTime;
 
 /**
@@ -30,17 +32,15 @@ public class RobotContainer {
   
   private final XboxController operatorController = new XboxController(1);
 
-  private final DriveTime m_driveTime1 = new DriveTime(driveSubsystem, -0.55, -0.55, 0.5);
-  private final DriveTime m_spinTime1 = new DriveTime(driveSubsystem, 0.55, -0.55, 0.5);
-  private final DriveTime m_driveTime2 = new DriveTime(driveSubsystem, -0.55, -0.55, 1);
-  private final DriveTime m_spinTime2 = new DriveTime(driveSubsystem, -0.55, 0.55, 0.5);
-  private final DriveTime m_driveTime3 = new DriveTime(driveSubsystem, -0.55, -0.55, 0.5);
-  private final DriveTime m_spinTime3 = new DriveTime(driveSubsystem, 0.55, -0.55, 0.5);
-  private final DriveTime m_driveTime4 = new DriveTime(driveSubsystem, 0.55, 0.55, 0.5);
+  private final AutoRoutines m_autoRoutines = new AutoRoutines(driveSubsystem);
 
+  private SendableChooser<Command> m_autoChooser = new SendableChooser<>();
+
+  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
+    m_autoChooser.setDefaultOption("Balance Auto", m_autoRoutines.DriveCommand1());
     configureButtonBindings();
     driveSubsystem.setDefaultCommand(
             new RunCommand(
@@ -84,9 +84,7 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
-    return new SequentialCommandGroup(
-      m_driveTime1, m_spinTime1, m_driveTime2, m_driveTime3, m_spinTime2, m_spinTime3, m_driveTime4
-    );
+    
+    return m_autoChooser.getSelected();
   }
 }
