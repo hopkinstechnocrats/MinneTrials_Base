@@ -7,6 +7,7 @@ package frc.robot.commands;
 import java.time.Duration;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.Constants;
 import frc.robot.subsystems.*;
 
 public class SpinConveyor extends CommandBase {
@@ -14,30 +15,33 @@ public class SpinConveyor extends CommandBase {
     
     private final double m_duration;
     private long m_startTime;
-
+    private boolean m_direction;
   
 
 /** Creates a new DriveToWall. */
-    public SpinConveyor(ConveyorSubsystem subsystem, double duration) {
+    public SpinConveyor(ConveyorSubsystem subsystem, double duration, boolean direction) {
         // Use addRequirements() here to declare subsystem dependencies.
         addRequirements(subsystem);
         this.subsystem = subsystem;
         m_duration = duration * 1000;
+        m_direction = direction;
     
     }
 
     // Called when the command is initially scheduled.
     @Override
      public void initialize() {
-    
+        m_startTime = System.currentTimeMillis();
+
     
     }
 
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
-        public void execute() {
-    
+    public void execute() {
+        // TODO find direction of motors
+        subsystem.Spin(m_direction);
     }
 
     // Called once the command ends or is interrupted.
