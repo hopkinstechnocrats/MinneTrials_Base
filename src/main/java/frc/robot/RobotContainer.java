@@ -32,7 +32,7 @@ public class RobotContainer {
   
   private final XboxController operatorController = new XboxController(1);
 
-  private final AutoRoutines m_autoRoutines = new AutoRoutines(driveSubsystem);
+  private final AutoRoutines m_autoRoutines = new AutoRoutines(driveSubsystem, m_conveyorSubsystem);
 
   private SendableChooser<Command> m_autoChooser = new SendableChooser<>();
 
