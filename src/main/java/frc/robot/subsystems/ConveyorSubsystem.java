@@ -32,10 +32,14 @@ public class ConveyorSubsystem extends SubsystemBase {
     if(direction){
       conveyorMotor.set(Constants.conveyorSpeed);
     }
-    //if false spin conveyer backwards
-    else{
+    else if(direction == false){
       conveyorMotor.set(-Constants.conveyorSpeed);
     }
+    //if false spin conveyer backwards
+    else{
+      conveyorMotor.neutralOutput();
+    }
+    
   } 
 
 

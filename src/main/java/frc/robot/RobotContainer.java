@@ -52,6 +52,14 @@ public class RobotContainer {
             , driveSubsystem)
     );
   
+    m_conveyorSubsystem.setDefaultCommand(
+      new RunCommand(
+              () -> {
+                
+                m_conveyorSubsystem.Spin(null);
+              }
+      , m_conveyorSubsystem)
+    );
   }
 
   /**
