@@ -42,7 +42,8 @@ public class AutoRoutines {
     public Command DriveAndDump(){
         final DriveTime m_driveTime_Drive = new DriveTime(m_driveTrain, -0.55, -0.55, 2);
         final SpinConveyor m_spinConveyor_Dump = new SpinConveyor(m_ConveyorSubsystem, 2, false);
-        return new SequentialCommandGroup( m_driveTime_Drive, m_spinConveyor_Dump
+        final DriveTime m_driveTime_RunAway = new DriveTime(m_driveTrain, 0.55, 0.55, 0);
+        return new SequentialCommandGroup( m_driveTime_Drive, m_spinConveyor_Dump, m_driveTime_RunAway
        
         );    
     }
