@@ -56,7 +56,7 @@ public class RobotContainer {
       new RunCommand(
               () -> {
                 
-                m_conveyorSubsystem.Spin(null);
+                m_conveyorSubsystem.NoSpin();
               }
       , m_conveyorSubsystem)
     );
