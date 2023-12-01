@@ -35,6 +35,11 @@ public class ConveyorSubsystem extends SubsystemBase {
 
     }
   
+  public void NoSpin(){
+    conveyorLeader.set(0);
+  }
+   
+  
 
   @Override
   public void periodic() {
