@@ -18,12 +18,10 @@ public final class Constants {
     public static final int leftMasterCANID = 6;
     public static final int leftFollowerCANID = 5;
     public static final int XboxControllerPort = 0;
-   // TODO find conveyor CANIDs
     public static final int conveyorLeaderCANID = 10; 
     public static final int conveyorFollowerCANID = 11;
     
     public static final double conveyorSpeed = 0.1;
-    //TODO find intake CANID
     public static final int intakeLeaderCANID = 12;
     public static final int intakeFollowerCANID = 13;
 
