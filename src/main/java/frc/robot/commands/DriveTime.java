@@ -22,7 +22,7 @@ public class DriveTime extends CommandBase {
    
     m_speedL = speedL;
     m_speedR = speedR;
-    m_duration = duration;
+    m_duration = duration*1000;
   }
 
   // Called when the command is initially scheduled.
