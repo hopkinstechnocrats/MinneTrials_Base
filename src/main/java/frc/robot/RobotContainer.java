@@ -32,12 +32,16 @@ public class RobotContainer {
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
 
   private final AutoRoutines m_autoRoutines = new AutoRoutines(driveSubsystem);
+  
+  private final DriveTime m_DriveTime1 = new DriveTime(driveSubsystem, -0.55, -0.55, 0.5);
 
   private SendableChooser<Command> m_autoChooser = new SendableChooser<>();
 
   private final XboxController driveController = new XboxController(Constants.XboxControllerPort);
   
   private final XboxController operatorController = new XboxController(1);
+
+  
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -77,7 +81,7 @@ public class RobotContainer {
 
     aButton.whileTrue(new RunCommand(() -> conveyorSubsystem.ConveyorWheels()));
     bButton.whileTrue(new RunCommand(() -> intakeSubsystem.SpinIntake(true)));
-    //xButton.whileTrue(new RunCommand(() -> intakeSubsystem.SpinIntake(false)));
+    xButton.whileTrue(new RunCommand(() -> conveyorSubsystem.negConveyorWheels()));
   }
    
   
@@ -93,7 +97,8 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    
-      return m_autoChooser.getSelected();
+
+     return new SequentialCommandGroup(m_DriveTime1);
+    //return m_autoRoutines.DriveAutoSimple();
   }
 }

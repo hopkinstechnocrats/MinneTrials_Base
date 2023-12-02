@@ -24,11 +24,11 @@ public class AutoRoutines {
 
     public Command DriveAutoSimple(){
         final DriveTime m_driveTime1 = new DriveTime(m_driveTrain, -0.55, -0.55, 3);
-        final DriveTime m_driveTime4 = new DriveTime(m_driveTrain, -0.55, 0.55, 0.5);
-        final ConveyorSpin m_ConveyorSpin1;
-        return new SequentialCommandGroup(
-        m_driveTime1
-    );
+        //final DriveTime m_driveTime4 = new DriveTime(m_driveTrain, -0.55, 0.55, 0.5);
+        //final ConveyorSpin m_ConveyorSpin = n);
+        return new SequentialCommandGroup(m_driveTime1);
+        
+        
     }
 
     public Command DriveAutoComplicated(){

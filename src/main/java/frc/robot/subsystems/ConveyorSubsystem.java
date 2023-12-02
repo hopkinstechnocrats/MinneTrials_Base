@@ -34,6 +34,11 @@ public class ConveyorSubsystem extends SubsystemBase {
     conveyorLeader.set(Constants.conveyorSpeed);
 
     }
+    
+    public void negConveyorWheels(){
+      conveyorLeader.set(-Constants.conveyorSpeed);
+  
+      }
 
   public void NoSpin(){
     conveyorLeader.set(0);
