@@ -14,26 +14,30 @@ import frc.robot.Constants;
 public class ConveyorSubsystem extends SubsystemBase {
  
     WPI_TalonFX conveyorLeader;
-    WPI_TalonFX conveyorFollower;
+    //WPI_TalonFX conveyorFollower;
 
   public ConveyorSubsystem() {
     conveyorLeader = new WPI_TalonFX(Constants.conveyorLeaderCANID);
-    conveyorFollower = new WPI_TalonFX(Constants.conveyorFollowerCANID);
+    //conveyorFollower = new WPI_TalonFX(Constants.conveyorFollowerCANID);
 
     conveyorLeader.configFactoryDefault();
-    conveyorFollower.configFactoryDefault();
+    //conveyorFollower.configFactoryDefault();
 
     conveyorLeader.setNeutralMode(NeutralMode.Brake);
-    conveyorFollower.setNeutralMode(NeutralMode.Brake);
+    //conveyorFollower.setNeutralMode(NeutralMode.Brake);
 
-    conveyorFollower.follow(conveyorLeader);
-    conveyorFollower.setInverted(true);
+    //conveyorFollower.follow(conveyorLeader);
+    //conveyorFollower.setInverted(true);
   }
 
   public void ConveyorWheels(){
     conveyorLeader.set(Constants.conveyorSpeed);
 
     }
+
+  public void NoSpin(){
+    conveyorLeader.set(0);
+  }
   
 
   @Override

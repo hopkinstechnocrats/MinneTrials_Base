@@ -47,11 +47,18 @@ public class RobotContainer {
     driveSubsystem.setDefaultCommand(
             new RunCommand(
                     () -> {
-                      driveSubsystem.drive(Constants.maxMotorPower*driveController.getLeftY(), 
-                      Constants.maxMotorPower*driveController.getRightY());
+                      driveSubsystem.drive(-Constants.maxMotorPower*driveController.getLeftY(), 
+                      -Constants.maxMotorPower*driveController.getRightY());
                     }
             , driveSubsystem)
     );
+    conveyorSubsystem.setDefaultCommand(new RunCommand(() -> {
+      conveyorSubsystem.NoSpin();
+    }, conveyorSubsystem));
+    
+    /*intakeSubsystem.setDefaultCommand(new RunCommand(() -> {
+      intakeSubsystem.NoSpin();
+    }, intakeSubsystem)); */
   
   }
 
@@ -70,7 +77,7 @@ public class RobotContainer {
 
     aButton.whileTrue(new RunCommand(() -> conveyorSubsystem.ConveyorWheels()));
     bButton.whileTrue(new RunCommand(() -> intakeSubsystem.SpinIntake(true)));
-    xButton.whileTrue(new RunCommand(() -> intakeSubsystem.SpinIntake(false)));
+    //xButton.whileTrue(new RunCommand(() -> intakeSubsystem.SpinIntake(false)));
   }
    
   

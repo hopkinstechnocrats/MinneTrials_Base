@@ -35,13 +35,12 @@ public class AutoRoutines {
         final DriveTime m_driveTime2 = new DriveTime(m_driveTrain, -0.55, -0.55, 3);
         final DriveTime m_driveTime3 = new DriveTime(m_driveTrain, -0.55, 0.55, 0.5);
         final ConveyorSpin m_ConveyorSpin1;
-        final DriveTime m_driveTime5 = new DriveTime(m_driveTrain, 0.55, 0.55, 3);
+        final DriveTime mdriveTime5 = new DriveTime(m_driveTrain, 0.55, 0.55, 3);
         return new SequentialCommandGroup(
         m_driveTime2
     );
-
     }
-
-
-
 }
+
+    
+    
