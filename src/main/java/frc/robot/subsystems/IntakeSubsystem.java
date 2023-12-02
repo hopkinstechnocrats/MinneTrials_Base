@@ -40,6 +40,10 @@ public class IntakeSubsystem extends SubsystemBase {
       intakeLeader.set(-Constants.intakeSpeed);
     }
   }
+
+  public void NoSpin(){
+    intakeLeader.set(0);
+  }
   
 
   @Override
