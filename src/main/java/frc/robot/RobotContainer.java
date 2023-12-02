@@ -54,13 +54,13 @@ public class RobotContainer {
     );
 
     conveyorSubsystem.setDefaultCommand(new RunCommand(() -> {
-      conveyorSubsystem.NoSpin();
-    })
+      conveyorSubsystem.NoSpin();}, conveyorSubsystem
+    )
     );
 
     intakeSubsystem.setDefaultCommand(new RunCommand(() -> {
-      intakeSubsystem.NoSpin();
-    })
+      intakeSubsystem.NoSpin();}, intakeSubsystem
+    )
     );
   
   }
