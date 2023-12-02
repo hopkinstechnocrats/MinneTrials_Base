@@ -24,7 +24,7 @@ public final class Constants {
 
     //set maximum %output of motors
     public static final double maxMotorOutput = -0.55;
-    public static final double conveyorSpeed = 0.1;
+    public static final double conveyorSpeed = 0.15;
 
 
 }
