@@ -60,9 +60,9 @@ public class RobotContainer {
       conveyorSubsystem.NoSpin();
     }, conveyorSubsystem));
     
-    /*intakeSubsystem.setDefaultCommand(new RunCommand(() -> {
+    intakeSubsystem.setDefaultCommand(new RunCommand(() -> {
       intakeSubsystem.NoSpin();
-    }, intakeSubsystem)); */
+    }, intakeSubsystem)); 
   
   }
 
@@ -98,7 +98,8 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
 
-     return new SequentialCommandGroup(m_DriveTime1);
-    //return m_autoRoutines.DriveAutoSimple();
+    return m_autoRoutines.DriveAutoSimple();
+  
+
   }
 }
